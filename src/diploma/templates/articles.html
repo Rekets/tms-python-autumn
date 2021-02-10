@@ -7,9 +7,11 @@
 <body>
 {% for article in articles %}
     <div>
-    <a href="{{ article.pk }}">Ссылка</a>
-    <b>{{ article.title }}</b>
+
+    <b>{{ article.title }}...</b>
+
     <p>{{ article.context }}</p>
+    <a href="{{ article.pk }}">Подробнее</a>
     <div/>
     <hr>
 {% endfor %}
