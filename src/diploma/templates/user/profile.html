@@ -9,6 +9,10 @@
     <a href="{{ user.username }}">Ссылка</a>
     <b>{{ user.username }}</b>
     <p>{{ user.get_full_name }}</p>
+    <p>{{ user.profile.birth_date }}</p>
+    <p>from {{ user.profile.country }}</p>
+    <p>{{ user.profile.height }} cm</p>
+    <p>{{ user.profile.weight }} kg</p>
 </body>
 <link rel="stylesheet" href="{% static 'home.css' %}">
 </html>
