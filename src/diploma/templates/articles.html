@@ -1,3 +1,4 @@
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,12 +8,12 @@
 <body>
 {% for article in articles %}
     <div>
-
     <b>{{ article.title }}...</b>
-
     <p>{{ article.context }}</p>
     <a href="{{ article.pk }}">Подробнее</a>
     <div/>
     <hr>
 {% endfor %}
 </body>
+<link rel="stylesheet" href="{% static 'home.css' %}">
+</html>
