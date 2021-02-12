@@ -4,13 +4,13 @@
     list-style-type: none;
     outline: none;
     box-sizing: border-box;
-    background-color: #fdb998;
+    background-color: #ffffff;
 }
 
 .container{
     width: 70vw;
     margin: auto;
-    font: 600 60px 'Open Sans', sans-serif;
+    font: 600 30px 'Open Sans', sans-serif;
     font-style: italic;
     text-align: center;
 }
