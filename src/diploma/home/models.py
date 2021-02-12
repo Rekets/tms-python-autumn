@@ -7,8 +7,8 @@ class Home(models.Model):
 
 
 class Articles(models.Model):
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=100)
     content = models.TextField()
 
     def __str__(self):
-        return f'{self.title} - {self.content}...'
+        return f'{self.title} - {self.content[:50]}...'
