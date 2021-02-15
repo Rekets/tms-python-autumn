@@ -1,5 +1,5 @@
-from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import ListView, DetailView
 
 from home.models import Articles
 
@@ -8,13 +8,15 @@ def home(request):
     return render(request, "home.html", {"home": home})
 
 
-def all_articles(request):
-    articles = Articles.objects.all()
-    return render(request, "articles.html", {"articles": articles})
+class ArticleListView(ListView):
+    model = Articles
+    template_name = "articles.html"
+    ordering = "title"
+    context_object_name = "articles"
 
 
-def get_article(request, pk: int):
-    article = get_object_or_404(Articles, pk=pk)
-    return render(
-        request, "article.html", {"article": article}
-    )
+class ArticleDetailView(DetailView):
+    model = Articles
+    template_name = "article.html"
+    slug_field = "pk"
+    context_object_name = "obj"

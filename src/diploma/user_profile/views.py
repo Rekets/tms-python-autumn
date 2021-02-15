@@ -1,36 +1,37 @@
 from django.contrib.auth.models import User
-from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.views.generic import TemplateView, DeleteView, \
+    UpdateView
+
+from home.models import Articles
 
 
-def profile(request, username):
-    if request.user.is_authenticated:
-        user = get_object_or_404(User, username=username)
-        return render(request, 'user/profile.html', {'user': user})
-    else:
-        return HttpResponse(
-            f'Stop watching from the sidelines, register and start making'
-            f' yourself!',
-            404)
+class UserDetailView(TemplateView):
+    model = User
+    template_name = 'user/profile.html'
+    slug_field = 'username'
+    pk_url_kwarg = 'username'
+    context_object_name = 'user'
+
+    def get_context_data(self, **kwargs):
+        context = super(UserDetailView, self).get_context_data(**kwargs)
+        # print(context)
+        context['articles'] = Articles.objects.all
+        return context
 
 
-def edit_profile(request, username):
-    user = get_object_or_404(User, username=username)
-    if request.method == "POST":
-        user.username = request.POST.get('username')
-        profile = user.profile
-        profile.birth_date = request.POST.get('birth_date')
-        profile.country = request.POST.get('country')
-        profile.height = request.POST.get('height')
-        profile.weight = request.POST.get('weight')
-        user.save()
-        profile.save()
-    return render(request, "user/edit_profile.html", {'user': user})
+class UserUpdateView(UpdateView):
+    model = User
+    template_name = 'user/edit_profile.html'
+    slug_field = 'username'
+    slug_url_kwarg = 'username'
+    context_object_name = 'user'
+    fields = ['username', 'first_name', 'last_name']
+    success_url = '/article/'
 
 
-def delete_profile(request, username):
-    user = get_object_or_404(User, username=username)
-    if request.method == "POST":
-        user.delete()
-        return render(request, 'user/successfully_delete_profile')
-    return render(request, 'user/delete_profile.html', {"user":user})
+class UserDeleteView(DeleteView):
+    model = User
+    slug_field = 'username'
+    slug_url_kwarg = 'username'
+    template_name = 'user/delete_profile.html'
+    success_url = '/articles/'
