@@ -14,3 +14,10 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+class Register(models.Model):
+    """
+    Класс регистрации профиля
+    """
+    pass
