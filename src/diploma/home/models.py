@@ -8,7 +8,7 @@ class Home(models.Model):
 
 
 class Articles(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=50)
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 

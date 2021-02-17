@@ -15,3 +15,10 @@
     text-align: center;
 }
 
+
+  p {
+    text-overflow: ellipsis; /* will make [...] at the end */
+    width: 260px; /* change to your preferences */
+    white-space: nowrap; /* paragraph to one line */
+    overflow:hidden; /* older browsers */
+    }

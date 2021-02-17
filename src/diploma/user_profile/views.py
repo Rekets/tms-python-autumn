@@ -1,21 +1,22 @@
 from django.contrib.auth.models import User
-from django.views.generic import TemplateView, DeleteView, \
-    UpdateView
+from django.shortcuts import render
+from django.views.generic import DeleteView, \
+    UpdateView, DetailView
 
 from home.models import Articles
 
 
-class UserDetailView(TemplateView):
+class UserDetailView(DetailView):
     model = User
     template_name = 'user/profile.html'
     slug_field = 'username'
-    pk_url_kwarg = 'username'
-    context_object_name = 'user'
+    slug_url_kwarg = "username"
+    context_object_name = "user"
 
     def get_context_data(self, **kwargs):
         context = super(UserDetailView, self).get_context_data(**kwargs)
-        # print(context)
-        context['articles'] = Articles.objects.all
+        print(context)
+        context['articles'] = Articles.objects.filter(author=context['user'])
         return context
 
 

@@ -7,4 +7,5 @@ urlpatterns = [
     path('<str:username>/edit/', views.UserUpdateView.as_view(), name='edit-profile'),
     path('<str:username>/delete/', views.UserDeleteView.as_view(),
          name='delete-profile'),
+
 ]

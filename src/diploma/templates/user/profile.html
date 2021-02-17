@@ -43,11 +43,12 @@
                 <p>from {{ user.profile.country }}</p>
                 <p>{{ user.profile.height }} cm</p>
                 <p>{{ user.profile.weight }} kg</p>
-                <a  type="submit" class="btn btn-primary" href="edit/"> Edit</a>
-                <a  type="submit" class="btn btn-danger" href="delete/"> Delete</a>
-                <h3>User articles:</h3>
+                <a  type="submit" class="btn btn-primary" href="edit/"> Edit user "{{ user.username }}"</a>
+                <a  type="submit" class="btn btn-danger" href="delete/"> Delete user "{{ user.username }}"</a>
+                <h3>{{ user.username }} articles:</h3>
                 {% for article in articles %}
                     {{ article }} <hr>
+                    <a href="{% url 'get-articles' pk=article.pk %}" class="btn btn-warning">More details</a>
                 {% endfor %}
 
             </div>
