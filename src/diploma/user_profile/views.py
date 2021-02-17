@@ -1,9 +1,10 @@
 from django.contrib.auth.models import User
-from django.shortcuts import render
+
 from django.views.generic import DeleteView, \
     UpdateView, DetailView
 
 from home.models import Articles
+
 
 
 class UserDetailView(DetailView):
@@ -36,3 +37,4 @@ class UserDeleteView(DeleteView):
     slug_url_kwarg = 'username'
     template_name = 'user/delete_profile.html'
     success_url = '/articles/'
+
