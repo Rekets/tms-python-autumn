@@ -1,3 +1,6 @@
+from django.shortcuts import render
+from django.urls import reverse
+
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
@@ -8,7 +11,6 @@ from django.views.generic import DeleteView, \
     UpdateView, DetailView, FormView
 
 from home.models import Articles
-from user_profile.forms import UserRegisterForm
 
 
 class UserDetailView(DetailView):
@@ -99,4 +101,6 @@ class LogoutView(View):
         logout(request)
 
         # После чего, перенаправляем пользователя на главную страницу.
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect(
+            reverse('log-in'))
+
