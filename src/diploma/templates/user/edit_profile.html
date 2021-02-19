@@ -7,7 +7,7 @@
         {% csrf_token %}
             <div class="container">
                 <div class="row">
-                    <h1>Форма для редактирования данных пользователя {{ user.get_full_name }}</h1>
+                    <h1>Форма для редактирования данных пользователя {{ user.username }}</h1>
                     <div class="mb-3">
                       <label for="username" class="form-label">Username</label>
                       <input name="username" type="text" class="form-control" id="username" placeholder="your username">
@@ -17,9 +17,14 @@
                       <input name="first_name" type="text" class="form-control" id="first_name" placeholder="your first name">
                     </div>
                     <div class="mb-3">
-                      <label for="last_name" class="form-label">Last name</label>
-                      <input name="last_name" type="text" class="form-control" id="last_name" placeholder="your last name">
+                      <label for="first_name" class="form-label">First name</label>
+                      <input name="first_name" type="text" class="form-control" id="first_name" placeholder="your first name">
                     </div>
+                    <div class="mb-3">
+                      <label for="country" class="form-label">Country</label>
+                      <input name="country" type="text" class="form-control" id="country" placeholder="your country">
+                    </div>
+
 
                 </div>
                     <button type="submit" class="btn btn-primary">Submit</button>

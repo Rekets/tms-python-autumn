@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.urls import reverse
 
 from django.contrib.auth import login, logout
@@ -40,7 +39,7 @@ class UserUpdateView(UpdateView):
     slug_url_kwarg = 'username'
     context_object_name = 'user'
     fields = ['username', 'first_name', 'last_name']
-    success_url = '/article/'
+    success_url = '/start/'
 
 
 class UserDeleteView(DeleteView):
@@ -51,7 +50,7 @@ class UserDeleteView(DeleteView):
     slug_field = 'username'
     slug_url_kwarg = 'username'
     template_name = 'user/delete_profile.html'
-    success_url = '/articles/'
+    success_url = '/'
 
 
 class RegisterFormView(FormView):
@@ -61,7 +60,7 @@ class RegisterFormView(FormView):
     form_class = UserCreationForm
 
     # Ссылка, на которую будет перенаправляться пользователь в случае успешной регистрации.
-    success_url = "/"
+    success_url = "/login/"
 
     # Шаблон, который будет использоваться при отображении представления.
     template_name = "user/register.html"
@@ -74,6 +73,10 @@ class RegisterFormView(FormView):
         return super(RegisterFormView, self).form_valid(form)
 
 
+
+
+
+
 class LoginFormView(FormView):
     """
     Класс аутентификации нового пользователя
@@ -84,7 +87,7 @@ class LoginFormView(FormView):
     template_name = 'user/login.html'
 
     # В случае успеха перенаправим на главную.
-    success_url = '/'
+    success_url = '/start/'
 
     def form_valid(self, form):
         # Получаем объект пользователя на основе введённых в форму данных.
@@ -102,5 +105,5 @@ class LogoutView(View):
 
         # После чего, перенаправляем пользователя на главную страницу.
         return HttpResponseRedirect(
-            reverse('log-in'))
+            reverse('home'))
 

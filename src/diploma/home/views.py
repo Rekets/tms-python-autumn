@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 
@@ -6,6 +7,10 @@ from home.models import Articles
 
 def home(request):
     return render(request, "home.html", {"home": home})
+
+
+def start_work(request):
+    return render(request, "start.html", {"start": start_work})
 
 
 class ArticleListView(ListView):
