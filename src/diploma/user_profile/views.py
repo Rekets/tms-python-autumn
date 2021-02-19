@@ -38,7 +38,7 @@ class UserUpdateView(UpdateView):
     slug_field = 'username'
     slug_url_kwarg = 'username'
     context_object_name = 'user'
-    fields = ['username', 'first_name', 'last_name']
+    fields = ['first_name', 'last_name']
     success_url = '/start/'
 
 
@@ -73,10 +73,6 @@ class RegisterFormView(FormView):
         return super(RegisterFormView, self).form_valid(form)
 
 
-
-
-
-
 class LoginFormView(FormView):
     """
     Класс аутентификации нового пользователя
@@ -106,4 +102,3 @@ class LogoutView(View):
         # После чего, перенаправляем пользователя на главную страницу.
         return HttpResponseRedirect(
             reverse('home'))
-
