@@ -21,3 +21,16 @@ class Register(models.Model):
     Класс регистрации профиля
     """
     pass
+
+
+class Activity(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    name_activity = models.CharField('name_activity', max_length=30, blank=True)
+    rout_length = models.CharField('rout_length', max_length=30, blank=True)
+    duration = models.CharField('duration', max_length=30, blank=True)
+    date = models.DateTimeField('date/Time')
+
+    def __str__(self):
+        return self.name_activity
+
+

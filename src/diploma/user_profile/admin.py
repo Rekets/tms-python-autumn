@@ -1,7 +1,5 @@
 from django.contrib import admin
-
-# Register your models here.
-from user_profile.models import Profile, Register
+from user_profile.models import Profile, Register, Activity
 
 
 @admin.register(Profile)
@@ -12,4 +10,10 @@ class ProfileAdmin(admin.ModelAdmin):
     list_filter = ("country",)
 
 
-admin.site.register(Register)
+
+
+
+@admin.register(Activity)
+class ActivityAdmin(admin.ModelAdmin):
+    list_display = (
+        'author', 'name_activity', 'rout_length', 'duration', 'date')

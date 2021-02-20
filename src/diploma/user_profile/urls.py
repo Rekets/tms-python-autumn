@@ -8,6 +8,10 @@ urlpatterns = [
     path('register/', views.RegisterFormView.as_view(), name='user-register'),
     path('login/', views.LoginFormView.as_view(), name='log-in'),
     path('logout/', views.LogoutView.as_view(), name='log-out'),
+
+    path('activity/', views.see_activity, name='activity'),
+    path('create/', views.create, name='create'),
+
     path('<str:username>/', views.UserDetailView.as_view(),
          name='user-profile'),
     path('<str:username>/edit/', views.UserUpdateView.as_view(),

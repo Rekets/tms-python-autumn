@@ -1,3 +1,4 @@
+from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from django.contrib.auth import login, logout
@@ -10,6 +11,8 @@ from django.views.generic import DeleteView, \
     UpdateView, DetailView, FormView
 
 from home.models import Articles
+from user_profile.forms import ActivityForm
+from user_profile.models import Activity
 
 
 class UserDetailView(DetailView):
@@ -102,3 +105,28 @@ class LogoutView(View):
         # После чего, перенаправляем пользователя на главную страницу.
         return HttpResponseRedirect(
             reverse('home'))
+
+
+def see_activity(request):
+    activity = Activity.objects.order_by('-date')
+    return render(request, 'user/activity.html', {'activity': activity})
+
+
+def create(request):
+    """
+    Функция создание новой активности и добавления на сайт
+    :return: новая запсить на сайте во вкладке 'Activity'
+    """
+
+    if request.method == 'POST':
+        form = ActivityForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('start-work')
+
+    form = ActivityForm()
+    data = {
+        'form': form,
+    }
+
+    return render(request, 'user/create.html', data)
