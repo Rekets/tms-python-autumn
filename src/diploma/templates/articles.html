@@ -3,15 +3,21 @@
 {% block content %}
 
 {% for article in object_list %}
+    <div class="container">
+        <div class="row">
 
-    <div class="card" style="width: 20rem;">
-  <img src="https://d3nn82uaxijpm6.cloudfront.net/assets/application/dashboard/sidebar-badge-prompt-privacy-0fc1803e5bfe7def07ad5be716aa653371be602b5fbda57a49c7dc894a9c07d2.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{ article.title }}</h5>
-    <p class="card-text">{{ article.content }} </p>
-    <a href="{{article.pk}}" class="btn btn-warning">More details</a>
-  </div>
-</div>
+            <div class="card" style="width: 20rem;">
+              <img src="https://d3nn82uaxijpm6.cloudfront.net/assets/application/dashboard/sidebar-badge-prompt-privacy-0fc1803e5bfe7def07ad5be716aa653371be602b5fbda57a49c7dc894a9c07d2.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                    <h5 class="card-title">{{ article.title }}</h5>
+                    <p class="card-text">{{ article.content }} </p>
+                    <h5 class="card-title>">Author: {{ article.author }}</h5>
+                    <a href="{{article.pk}}" class="btn btn-warning">More details</a>
+
+              </div>
+            </div>
+        </div>
+    </div>
 {% endfor %}
 
 {% endblock %}

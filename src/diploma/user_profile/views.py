@@ -108,6 +108,9 @@ class LogoutView(View):
 
 
 def see_activity(request):
+    """
+    Функция просмотра ленты активностей
+    """
     activity = Activity.objects.order_by('-date')
     return render(request, 'user/activity.html', {'activity': activity})
 
@@ -124,9 +127,4 @@ def create(request):
             form.save()
             return redirect('start-work')
 
-    form = ActivityForm()
-    data = {
-        'form': form,
-    }
-
-    return render(request, 'user/create.html', data)
+    return render(request, 'user/create.html')

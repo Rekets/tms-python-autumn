@@ -2,16 +2,38 @@
 
 {% block content %}
 
-    <div class="features">
+<body>
             <form method="post">
                 {% csrf_token %}
+                <div class="container">
+                    <div class="row">
+                <div class="mb-3">
                             <h1>Add activity for {{ user.username }}</h1>
-                            {{ form.name_activity }}<br>
-                            {{ form.duration }}<br>
-                            {{ form.rout_length }}<br>
-                            {{ form.date }}<br>
-                            <button type="submit" class="btn btn-success">Add</button>
+
+                    <label for="author" class="form-label">Author</label>
+                      <input name="author" type="text" class="form-control" id="author" placeholder="author" value="{{ user.username }}">
+
+
+                    <label for="name_activity" class="form-label"></label>
+                      <input name="name_activity" type="text" class="form-control" id="name_activity" placeholder="name activity">
+
+
+                    <label for="duration" class="form-label"></label>
+                      <input name="duration" type="text" class="form-control" id="duration" placeholder="duration">
+
+
+                    <label for="rout_length" class="form-label"></label>
+                      <input name="rout_length" type="text" class="form-control" id="rout_length" placeholder="rout length">
+
+
+                    <label for="date" class="form-label"></label>
+                      <input name="date" type="date" class="form-control" id="date" placeholder="date">
+
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+                    </div>
+            </div>
             </form>
-    </div>
+</body>
 
 {% endblock %}
