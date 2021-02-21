@@ -3,6 +3,7 @@
 {% block content %}
 
 <body>
+
             <form method="post">
                 {% csrf_token %}
                 <div class="container">
@@ -10,8 +11,8 @@
                 <div class="mb-3">
                             <h1>Add activity for {{ user.username }}</h1>
 
-                    <label for="author" class="form-label">Author</label>
-                      <input name="author" type="text" class="form-control" id="author" placeholder="author" value="{{ user.username }}">
+                    <label for="username" class="form-label"></label>
+                      <input name="username" type="text" class="form-control" id="username" placeholder="username" value="{{ user.username }}">
 
 
                     <label for="name_activity" class="form-label"></label>

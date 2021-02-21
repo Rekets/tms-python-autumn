@@ -1,5 +1,5 @@
 from django.contrib import admin
-from user_profile.models import Profile, Register, Activity
+from user_profile.models import Profile, Activity
 
 
 @admin.register(Profile)
@@ -10,10 +10,8 @@ class ProfileAdmin(admin.ModelAdmin):
     list_filter = ("country",)
 
 
-
-
-
 @admin.register(Activity)
 class ActivityAdmin(admin.ModelAdmin):
     list_display = (
-        'author', 'name_activity', 'rout_length', 'duration', 'date')
+        'username', 'name_activity', 'rout_length', 'duration', 'date')
+

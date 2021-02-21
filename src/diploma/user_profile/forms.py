@@ -15,4 +15,5 @@ class UserRegisterForm(UserCreationForm):
 class ActivityForm(ModelForm):
     class Meta:
         model = Activity
-        fields = ['name_activity', 'rout_length', 'duration', 'date']
+        fields = [ 'name_activity', 'rout_length', 'duration', 'date']
+        #если добавить поле 'username' - небудет передаваться форма в БД#
