@@ -16,9 +16,11 @@ class ActivityForm(forms.ModelForm):
         model = Activity
         fields = ['name_activity', 'rout_length', 'duration', 'date']
 
-        def save(self, user):
-            activity = super(ActivityForm, self).save(commit=False)
-            activity.user = user
-            activity.save()
-
-            return activity
+    def save(self, user):
+        activity = super(ActivityForm, self).save(commit=False)
+        activity.user = user
+        activity.save()
+        print('________________')
+        print(activity.user)
+        print('________________')
+        return activity
