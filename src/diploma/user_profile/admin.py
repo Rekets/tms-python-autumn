@@ -13,5 +13,5 @@ class ProfileAdmin(admin.ModelAdmin):
 @admin.register(Activity)
 class ActivityAdmin(admin.ModelAdmin):
     list_display = (
-        'username', 'name_activity', 'rout_length', 'duration', 'date')
+        'user', 'name_activity', 'rout_length', 'duration', 'date')
 

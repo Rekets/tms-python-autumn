@@ -124,7 +124,7 @@ def create(request):
     if request.method == 'POST':
         form = ActivityForm(request.POST)
         if form.is_valid():
-            form.save()
+            form.save(request.user)
             return redirect('start-work')
 
     return render(request, 'user/create.html')

@@ -1,4 +1,3 @@
-
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.forms import ModelForm
@@ -12,8 +11,15 @@ class UserRegisterForm(UserCreationForm):
     field_order = ['username', 'email', 'password1', 'password2']
 
 
-class ActivityForm(ModelForm):
+class ActivityForm(forms.ModelForm):
+
     class Meta:
         model = Activity
-        fields = [ 'name_activity', 'rout_length', 'duration', 'date']
-        #если добавить поле 'username' - небудет передаваться форма в БД#
+        fields = ['name_activity', 'rout_length', 'duration', 'date']
+
+        def save(self, user):
+            activity = super(ActivityForm, self).save(commit=False)
+            activity.user = user
+            activity.save()
+
+            return activity
