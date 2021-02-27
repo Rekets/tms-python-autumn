@@ -24,3 +24,5 @@ class ActivityForm(forms.ModelForm):
         print(activity.user)
         print('________________')
         return activity
+
+

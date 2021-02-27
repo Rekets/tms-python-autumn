@@ -42,6 +42,7 @@ def edit_profile(request, username):
         profile.weight = request.POST.get('weight')
         profile.height = request.POST.get('height')
         profile.birth_date = request.POST.get('birth_date')
+        profile.image = request.POST.get('image')
         user.save()
         profile.save()
     return render(request, "user/edit_profile.html", {"user": user})

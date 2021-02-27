@@ -5,7 +5,7 @@ from user_profile.models import Profile, Activity
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'country', 'weight',
-                    'height')
+                    'height', 'image')
     search_fields = ('country',)
     list_filter = ("country",)
 

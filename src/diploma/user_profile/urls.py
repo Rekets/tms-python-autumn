@@ -2,6 +2,9 @@ from django.urls import path
 
 from user_profile import views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 from django.conf.urls import url
 
 urlpatterns = [
@@ -19,4 +22,4 @@ urlpatterns = [
     path('<str:username>/delete/', views.UserDeleteView.as_view(),
          name='delete-profile'),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

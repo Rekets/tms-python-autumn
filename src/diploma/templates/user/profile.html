@@ -2,21 +2,25 @@
 
 {% block content %}
 
+
     <div class="container">
+      <img src="{{ user.profile.image.url }}"  width="240" height="240" class="img-thumbnail" >
             <div class="row">
                 <b>{{ user.username }}</b>
                 <p>{{ user.profile.weight }} kg</p>
                 <p>{{ user.profile.height }} cm</p>
                 <p>b-day {{ user.profile.birth_date }}</p>
-                <!--<p>from {{ user.profile.country }}</p>
-                <p>{{ user.profile.height }} cm</p>
-                <p>{{ user.profile.weight }} kg</p>-->
+
+
+
+
                 <a  type="submit" class="btn btn-primary" href="edit/"> Edit user "{{ user.username }}"</a>
                 <a  type="submit" class="btn btn-danger" href="delete/"> Delete user "{{ user.username }}"</a>
 
 
 
             </div>
+
     </div>
 
 {% endblock %}
