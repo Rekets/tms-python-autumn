@@ -12,6 +12,7 @@ class Profile(models.Model):
     weight = models.CharField(max_length=3, blank=True)
     birth_date = models.DateField(null=True, blank=True)
 
+
     def __str__(self):
         return self.user.username
 

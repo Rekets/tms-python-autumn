@@ -5,18 +5,16 @@
     <div class="container">
             <div class="row">
                 <b>{{ user.username }}</b>
-                <p>{{ user.get_full_name }}</p>
-                <p>{{ user.profile.birth_date }}</p>
+                <p>{{ user.profile.weight }} kg</p>
+                <p>{{ user.profile.height }} cm</p>
+                <p>b-day {{ user.profile.birth_date }}</p>
                 <!--<p>from {{ user.profile.country }}</p>
                 <p>{{ user.profile.height }} cm</p>
                 <p>{{ user.profile.weight }} kg</p>-->
                 <a  type="submit" class="btn btn-primary" href="edit/"> Edit user "{{ user.username }}"</a>
                 <a  type="submit" class="btn btn-danger" href="delete/"> Delete user "{{ user.username }}"</a>
-                <h3>{{ user.username }} articles:</h3>
-                {% for article in articles %}
-                    {{ article }} <hr>
-                    <a href="{% url 'get-articles' pk=article.pk %}" class="btn btn-warning">More details</a>
-                {% endfor %}
+
+
 
             </div>
     </div>

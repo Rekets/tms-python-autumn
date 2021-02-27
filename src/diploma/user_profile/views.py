@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 
 from django.contrib.auth import login, logout
@@ -12,7 +12,7 @@ from django.views.generic import DeleteView, \
 
 from home.models import Articles
 from user_profile.forms import ActivityForm
-from user_profile.models import Activity
+from user_profile.models import Activity, Profile
 
 
 class UserDetailView(DetailView):
@@ -32,17 +32,20 @@ class UserDetailView(DetailView):
         return context
 
 
-class UserUpdateView(UpdateView):
-    """
-    Измененение профиля
-    """
-    model = User
-    template_name = 'user/edit_profile.html'
-    slug_field = 'username'
-    slug_url_kwarg = 'username'
-    context_object_name = 'user'
-    fields = ['first_name', 'last_name']
-    success_url = '/start/'
+def edit_profile(request, username):
+    print(request.POST)
+    user = get_object_or_404(User, username=username)
+    if request.method == 'POST':
+        user.username = request.POST.get('username')
+        profile, _ = Profile.objects.get_or_create(user=user)
+        profile.country = request.POST.get('country')
+        profile.weight = request.POST.get('weight')
+        profile.height = request.POST.get('height')
+        profile.birth_date = request.POST.get('birth_date')
+        user.save()
+        profile.save()
+    return render(request, "user/edit_profile.html", {"user": user})
+
 
 
 class UserDeleteView(DeleteView):
