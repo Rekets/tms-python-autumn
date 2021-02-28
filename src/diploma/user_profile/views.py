@@ -1,3 +1,5 @@
+import profile
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 
@@ -46,7 +48,6 @@ def edit_profile(request, username):
         user.save()
         profile.save()
     return render(request, "user/edit_profile.html", {"user": user})
-
 
 
 class UserDeleteView(DeleteView):
@@ -127,8 +128,19 @@ def create(request):
 
     if request.method == 'POST':
         form = ActivityForm(request.POST)
+
+        """подсчёт калорий"""
+        # request.POST.get('rout_length')
+        # request.POST.get('weight')
+        # weight = request.POST.get('weight')
+        calories = int(request.POST.get('rout_length')) * int(
+            request.POST.get('weight'))
+        Activity.calories = calories
+        print(Activity.calories)
         if form.is_valid():
-            form.save(request.user)
+            request.calories = Activity.calories
+            form.save(request.user, request.calories)
+
             return redirect('start-work')
 
     return render(request, 'user/create.html')

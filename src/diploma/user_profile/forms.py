@@ -1,3 +1,5 @@
+import profile
+
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 
@@ -11,18 +13,16 @@ class UserRegisterForm(UserCreationForm):
 
 
 class ActivityForm(forms.ModelForm):
-
     class Meta:
         model = Activity
-        fields = ['name_activity', 'rout_length', 'duration', 'date']
+        fields = ['name_activity', 'rout_length', 'duration', 'date', 'weight',
+                  'calories']
 
-    def save(self, user):
+    def save(self, user, calories):
         activity = super(ActivityForm, self).save(commit=False)
         activity.user = user
+        activity.calories = calories
+
         activity.save()
-        print('________________')
-        print(activity.user)
-        print('________________')
+
         return activity
-
-

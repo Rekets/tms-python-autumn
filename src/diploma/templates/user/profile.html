@@ -4,15 +4,12 @@
 
 
     <div class="container">
-      <img src="{{ user.profile.image.url }}"  width="240" height="240" class="img-thumbnail" >
+      <img src="https://static.wikia.nocookie.net/wikies/images/6/6b/%D0%A1%D1%821.jpg/revision/latest/top-crop/width/300/height/300?cb=20130727095957&path-prefix=ru"  width="240" height="240" class="img-thumbnail" >
             <div class="row">
                 <b>{{ user.username }}</b>
                 <p>{{ user.profile.weight }} kg</p>
                 <p>{{ user.profile.height }} cm</p>
                 <p>b-day {{ user.profile.birth_date }}</p>
-
-
-
 
                 <a  type="submit" class="btn btn-primary" href="edit/"> Edit user "{{ user.username }}"</a>
                 <a  type="submit" class="btn btn-danger" href="delete/"> Delete user "{{ user.username }}"</a>
