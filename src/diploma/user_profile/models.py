@@ -12,6 +12,7 @@ class Profile(models.Model):
     weight = models.CharField(max_length=3, blank=True)
     birth_date = models.DateField(null=True, blank=True)
     image = models.ImageField(upload_to='image', blank=True)
+    all_duration = models.CharField(max_length=5, blank=True)
 
     def __str__(self):
         return self.user.username
@@ -34,6 +35,7 @@ class Activity(models.Model):
 
     weight = models.CharField(max_length=3, blank=True)
     calories = models.CharField('calories', max_length=5, blank=True)
+
 
     def __str__(self):
         return self.name_activity

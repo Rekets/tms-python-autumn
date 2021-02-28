@@ -129,14 +129,11 @@ def create(request):
     if request.method == 'POST':
         form = ActivityForm(request.POST)
 
-        """подсчёт калорий"""
-        # request.POST.get('rout_length')
-        # request.POST.get('weight')
-        # weight = request.POST.get('weight')
         calories = int(request.POST.get('rout_length')) * int(
             request.POST.get('weight'))
         Activity.calories = calories
         print(Activity.calories)
+
         if form.is_valid():
             request.calories = Activity.calories
             form.save(request.user, request.calories)
