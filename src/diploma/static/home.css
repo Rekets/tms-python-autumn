@@ -9,7 +9,7 @@
 
 .container{
     width: 70vw;
-    margin: auto;
+    margin: 0 auto;
     font: 600 30px 'Open Sans', sans-serif;
     font-style: italic;
     text-align: center;

@@ -1,24 +1,27 @@
+{% load static %}
+
 <!DOCTYPE html>
+
+<html lang="en">
 <html>
   <head>
     <title>Войти</title>
   </head>
 
 
-</div>
-
   <body>
-    <form action="" method="post">
-      {% csrf_token %}
+            <div class="wrapper">
+                <form action="" method="post">
+
       <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
       {{ form.as_p }}
 
-      <div class="d-grid gap-2 col-6 mx-auto">
-      <button class="btn btn-outline-success" type="submit">Enter</button>
-      </div>
-    </form>
+      <button class="btn" type="submit">Enter</button>
+            </form>
+       </div>
   </body>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-      rel="stylesheet">
+<link rel="stylesheet" href="{% static 'my_login.css' %}">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap" rel="stylesheet">
 </html>

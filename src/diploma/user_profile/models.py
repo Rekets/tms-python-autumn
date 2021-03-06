@@ -11,7 +11,7 @@ class Profile(models.Model):
     height = models.CharField(max_length=30, blank=True)
     weight = models.CharField(max_length=3, blank=True)
     birth_date = models.DateField(null=True, blank=True)
-    image = models.ImageField(upload_to='image', blank=True)
+    image = models.ImageField(upload_to='images', null=True, default='/media/media/Koala_30BhBrc.jpg')
     all_duration = models.CharField(max_length=5, blank=True)
 
     def __str__(self):
