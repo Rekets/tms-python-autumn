@@ -6,12 +6,19 @@
     <div class="container">
 
         <div class="row">
-            {% if user.profile.image %}
-            <img src="{{ user.profile.image }}" alt="">
-            {% endif %}
+
+
+
             <b>{{ user.username }} from {{ user.profile.country }}</b>
             <p>{{ user.profile.height }} cm</p>
             <p>b-day {{ user.profile.birth_date }}</p>
+            <h1>Last activity:</h1>
+            {% for activity in activity %}
+                <p>{{ activity.rout_length }}km</p>
+                <p>for {{ activity.duration }}min</p>
+                <br>
+            {% endfor %}
+
 
 
             <a type="submit" class="btn btn-primary" href="edit/"> Edit user

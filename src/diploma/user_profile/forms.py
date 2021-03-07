@@ -3,7 +3,7 @@ import profile
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 
-from user_profile.models import Activity
+from user_profile.models import Activity, Profile
 
 
 class UserRegisterForm(UserCreationForm):
@@ -23,7 +23,6 @@ class ActivityForm(forms.ModelForm):
         activity.user = user
         activity.all_length = all_length
         activity.calories = calories
-
 
         activity.save()
 

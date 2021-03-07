@@ -30,8 +30,13 @@ class UserDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(UserDetailView, self).get_context_data(**kwargs)
         print(context)
-        context['articles'] = Articles.objects.filter(author=context['user'])
+        context['activity'] = Activity.objects.filter(user=context['user'])
+        print(context['activity'])
         return context
+
+
+
+
 
 
 def edit_profile(request, username):
@@ -119,6 +124,8 @@ def see_activity(request):
     """
     activity = Activity.objects.order_by('-date')
 
+
+
     return render(request, 'user/activity.html', {'activity': activity})
 
 
@@ -132,16 +139,17 @@ def create(request):
         form = ActivityForm(request.POST)
 
         # высчитываем потраченные колории #
+
         calories = int(request.POST.get('rout_length')) * int(
             request.POST.get('weight'))
         Activity.calories = calories
-
 
         # высчитываем суммарное расстояние #
 
         print("==============")
         all_length_list = (
-            Activity.objects.filter(user__username__contains=request.POST.get('user')).values_list(
+            Activity.objects.filter(
+                user__username__contains=request.POST.get('user')).values_list(
                 'rout_length', flat=True))
         print(all_length_list)
         all_length_int = []
