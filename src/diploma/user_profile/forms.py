@@ -12,6 +12,7 @@ class UserRegisterForm(UserCreationForm):
     field_order = ['username', 'email', 'password1', 'password2']
 
 
+
 class ActivityForm(forms.ModelForm):
     class Meta:
         model = Activity

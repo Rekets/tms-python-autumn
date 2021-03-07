@@ -3,23 +3,18 @@
 {% block content %}
 
 
-    </li>
-    <a href="{% url 'create' %}">
-        <li>
-            <button class="btn btn-info"><i class="fas fa-plus-circle"></i>Add
-                activity
-            </button>
-        </li>
-    </a>
-
-    <li class="nav-item">
-        <div class="features">
-            <h1>All activity</h1>
-            <div class="card" style="width: 15rem;">
-                <div class="card-body">
+        <div class="container">
+        <div class="activity_top">
+            <div class="activity_title"><h1>All activity</h1></div>
+            <div class="activity_btn"><a href="{% url 'create' %}"><button class="btn a">Add activity</button></a></div>
+        </div>
+            <div class="row">
+                <div class="wrap">
 
                     {% for i in activity %}
-                        <div>
+                        <div class="col-4">
+                        <div class="card">
+                            <div class="card-body">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25"
                                  height="25" fill="currentColor"
                                  class="bi bi-bar-chart" viewBox="0 0 16 16">
@@ -32,14 +27,14 @@
                             <p class="card-text"> {{ i.calories }} ccal</p>
                             <p class="card-text"> {{ i.date }}</p>
                             <p class="card-text"> {{ i.all_length }}km all the time</p>
-
-
                             <br>
+                                </div>
                         </div>
+                    </div>
                     {% endfor %}
-
-
-                </div>
+</div>
+        </div>
+        </div>
 
 
 

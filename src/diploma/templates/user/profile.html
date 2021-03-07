@@ -7,9 +7,8 @@
 
         <div class="row">
 
-
-
-            <b>{{ user.username }} from {{ user.profile.country }}</b>
+            <div class="col-4">
+                <b>{{ user.username }} from {{ user.profile.country }}</b>
             <p>{{ user.profile.height }} cm</p>
             <p>b-day {{ user.profile.birth_date }}</p>
             <h1>Last activity:</h1>
@@ -25,6 +24,7 @@
                 "{{ user.username }}"</a>
             <a type="submit" class="btn btn-danger" href="delete/"> Delete user
                 "{{ user.username }}"</a>
+            </div>
 
 
         </div>
