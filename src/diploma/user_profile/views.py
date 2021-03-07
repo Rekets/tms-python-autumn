@@ -75,6 +75,7 @@ class RegisterFormView(FormView):
 
     def form_valid(self, form):
         # Создаём пользователя, если данные в форму были введены корректно.
+
         form.save()
 
         # Вызываем метод базового класса
@@ -117,6 +118,7 @@ def see_activity(request):
     Функция просмотра ленты активностей
     """
     activity = Activity.objects.order_by('-date')
+
     return render(request, 'user/activity.html', {'activity': activity})
 
 
@@ -129,14 +131,33 @@ def create(request):
     if request.method == 'POST':
         form = ActivityForm(request.POST)
 
+        # высчитываем потраченные колории #
         calories = int(request.POST.get('rout_length')) * int(
             request.POST.get('weight'))
         Activity.calories = calories
-        print(Activity.calories)
+
+
+        # высчитываем суммарное расстояние #
+
+        print("==============")
+        all_length_list = (
+            Activity.objects.filter(user__username__contains=request.POST.get('user')).values_list(
+                'rout_length', flat=True))
+        print(all_length_list)
+        all_length_int = []
+        for i in all_length_list:
+            i = int(i)
+            all_length_int.append(i)
+        all_length = sum(all_length_int) + int(
+            request.POST.get('rout_length'))
+        print(all_length)
+        Activity.all_length = all_length
+        print("==============")
 
         if form.is_valid():
             request.calories = Activity.calories
-            form.save(request.user, request.calories)
+            request.all_length = Activity.all_length
+            form.save(request.user, request.calories, request.all_length)
 
             return redirect('start-work')
 

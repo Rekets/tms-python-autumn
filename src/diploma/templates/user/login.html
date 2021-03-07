@@ -10,9 +10,10 @@
 
 
   <body>
+
             <div class="wrapper">
                 <form action="" method="post">
-
+        {% csrf_token %}
       <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
       {{ form.as_p }}
 
