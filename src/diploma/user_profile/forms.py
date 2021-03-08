@@ -19,11 +19,12 @@ class ActivityForm(forms.ModelForm):
         fields = ['name_activity', 'rout_length', 'duration', 'date', 'weight',
                   'calories']
 
-    def save(self, user, calories, all_length):
+    def save(self, user, calories, all_length, all_duration):
         activity = super(ActivityForm, self).save(commit=False)
         activity.user = user
         activity.all_length = all_length
         activity.calories = calories
+        activity.all_duration = all_duration
 
         activity.save()
 

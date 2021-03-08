@@ -156,10 +156,30 @@ def create(request):
         Activity.all_length = all_length
         print("==============")
 
+        # высчитываем суммарное время #
+
+        print("==============")
+        all_duration_list = (
+            Activity.objects.filter(
+                user__username__contains=request.POST.get('user')).values_list(
+                'duration', flat=True))
+        print(all_duration_list)
+        all_duration_int = []
+        for q in all_duration_list:
+            q = int(q)
+            all_duration_int.append(q)
+        all_duration = sum(all_duration_int) + int(
+            request.POST.get('duration'))
+        print(all_duration)
+        Activity.all_duration = all_duration
+        print("==============")
+
         if form.is_valid():
             request.calories = Activity.calories
             request.all_length = Activity.all_length
-            form.save(request.user, request.calories, request.all_length)
+            request.all_duration = Activity.all_duration
+            form.save(request.user, request.calories, request.all_length,
+                      request.all_duration)
 
             return redirect('activity')
 

@@ -41,6 +41,7 @@ class Activity(models.Model):
     calories = models.CharField('calories', max_length=5, blank=True)
 
     all_length = models.CharField('all length', max_length=30, blank=True, )
+    all_duration = models.CharField('all duration', max_length=30, blank=True, )
 
     def __str__(self):
         return self.name_activity

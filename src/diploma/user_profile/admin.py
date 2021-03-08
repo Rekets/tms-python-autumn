@@ -19,4 +19,4 @@ admin.site.register(Image)
 class ActivityAdmin(admin.ModelAdmin):
     list_display = (
         'user', 'name_activity', 'rout_length', 'duration', 'date', 'weight',
-        'calories', 'all_length')
+        'calories', 'all_length', 'all_duration')
