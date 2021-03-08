@@ -167,6 +167,6 @@ def create(request):
             request.all_length = Activity.all_length
             form.save(request.user, request.calories, request.all_length)
 
-            return redirect('start-work')
+            return redirect('activity')
 
     return render(request, 'user/create.html')

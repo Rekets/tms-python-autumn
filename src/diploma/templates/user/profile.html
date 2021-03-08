@@ -11,6 +11,12 @@
                 <b>{{ user.username }} from {{ user.profile.country }}</b>
             <p>{{ user.profile.height }} cm</p>
             <p>b-day {{ user.profile.birth_date }}</p>
+
+            <a type="submit" class="btn btn-primary" href="edit/"> Edit user
+                "{{ user.username }}"</a>
+            <a type="submit" class="btn btn-danger" href="delete/"> Delete user
+                "{{ user.username }}"</a>
+
             <h1>Last activity:</h1>
             {% for activity in activity %}
                 <p>{{ activity.rout_length }}km</p>
@@ -20,10 +26,7 @@
 
 
 
-            <a type="submit" class="btn btn-primary" href="edit/"> Edit user
-                "{{ user.username }}"</a>
-            <a type="submit" class="btn btn-danger" href="delete/"> Delete user
-                "{{ user.username }}"</a>
+
             </div>
 
 

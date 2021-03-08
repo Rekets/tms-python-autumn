@@ -15,11 +15,11 @@ urlpatterns = [
     path('activity/', views.see_activity, name='activity'),
     path('create/', views.create, name='create'),
 
-    path('<str:username>/', views.UserDetailView.as_view(),
+    path('user/<str:username>/', views.UserDetailView.as_view(),
          name='user-profile'),
-    path('<str:username>/edit/', views.edit_profile,
+    path('user/<str:username>/edit/', views.edit_profile,
          name='edit-profile'),
-    path('<str:username>/delete/', views.UserDeleteView.as_view(),
+    path('user/<str:username>/delete/', views.UserDeleteView.as_view(),
          name='delete-profile'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
