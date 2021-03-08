@@ -1,6 +1,9 @@
 from django.contrib import admin
 from home.models import Articles, Image
 
+from django.contrib import admin
+from .models import City
+
 
 # admin.site.register(Articles)
 
@@ -11,3 +14,5 @@ class ArticlesAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Image)
+
+admin.site.register(City)
