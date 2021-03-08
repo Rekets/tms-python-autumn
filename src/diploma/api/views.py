@@ -1,5 +1,4 @@
 from django.http import JsonResponse
-
 from rest_framework.generics import ListAPIView
 
 from home.models import Articles
@@ -15,6 +14,9 @@ def test_api(request):
     )
 
 
-class ArticleListAPIView(ListAPIView):
-    model = Articles
+class ArticlesListAPIView(ListAPIView):
+    queryset = Articles.objects.all()
     serializer_class = ArticlesSerializer
+
+
+

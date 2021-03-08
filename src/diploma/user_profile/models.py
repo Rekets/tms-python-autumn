@@ -30,7 +30,7 @@ class Activity(models.Model):
                                      blank=True)
     rout_length = models.CharField('rout_length', max_length=30, blank=True)
     duration = models.CharField('duration', max_length=30, blank=True)
-    date = models.DateTimeField('date/Time')
+    date = models.DateTimeField('date/Time', null=True)
 
     weight = models.CharField(max_length=3, blank=True)
     calories = models.CharField('calories', max_length=5, blank=True)

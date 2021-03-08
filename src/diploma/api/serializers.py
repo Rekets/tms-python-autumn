@@ -9,15 +9,15 @@ class ArticlesSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Articles
-        fields = ["id", "title", "content", "author", "link", "image"]
+        fields = ["id", "title", "content", "author", "link"]
 
     def get_link(self, obj):
-        uri = reverse("articles-detail", kwargs={"pk": obj.pk})
+        uri = reverse("get-articles", kwargs={"pk": obj.pk})
         return self.context["request"].build_absolute_uri(uri)
 
     def update(self, instance, validated_data):
         request = self.context.get("request")
         user = request.user
         if user.is_authenticated and instance.author_id == user.id:
-            return super(ArticleSerializer, self).update(instance, validated_data)
+            return super(ArticlesSerializer, self).update(instance, validated_data)
         raise Exception("No credentials")
