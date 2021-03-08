@@ -20,6 +20,7 @@ class ArticleListView(ListView):
     context_object_name = "articles"
 
 
+
 class ArticleDetailView(DetailView):
     model = Articles
     template_name = "article.html"

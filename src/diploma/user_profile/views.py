@@ -35,10 +35,6 @@ class UserDetailView(DetailView):
         return context
 
 
-
-
-
-
 def edit_profile(request, username):
     print(request.POST)
     user = get_object_or_404(User, username=username)
@@ -49,7 +45,7 @@ def edit_profile(request, username):
         profile.weight = request.POST.get('weight')
         profile.height = request.POST.get('height')
         profile.birth_date = request.POST.get('birth_date')
-        profile.image = request.POST.get('image')
+        profile.avatar = request.POST.get('avatar')
         user.save()
         profile.save()
     return render(request, "user/edit_profile.html", {"user": user})
@@ -123,8 +119,6 @@ def see_activity(request):
     Функция просмотра ленты активностей
     """
     activity = Activity.objects.order_by('-date')
-
-
 
     return render(request, 'user/activity.html', {'activity': activity})
 

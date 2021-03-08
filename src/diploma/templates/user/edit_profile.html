@@ -37,8 +37,15 @@
 
                 <div class="mb-3">
                   <label for="birth_date" class="form-label">birth date</label>
-                  <input name="birth_date" type="date" class="form-control" id="birth_date" placeholder="birth_date" value="{{ user.profile.birth_date }}">
+                  <input name="birth_date" type="date" class="form-control" id="birth_date" placeholder="birth_date" value="{{ user.profile.birth_date }}" required>
                 </div>
+
+                <div class="mb-3">
+                  <label for="avatar" class="form-label">avatar</label>
+                  <input name="avatar" type="file" class="form-control" id="avatar" placeholder="avatar">
+                </div>
+
+
 
 
 

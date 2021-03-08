@@ -1,13 +1,18 @@
 from django.contrib import admin
-from user_profile.models import Profile, Activity
+
+from home.models import Image
+from user_profile.models import Profile, Activity, Image
 
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'country', 'weight',
-                    'height', 'image')
+                    'height')
     search_fields = ('country',)
     list_filter = ("country",)
+
+
+admin.site.register(Image)
 
 
 @admin.register(Activity)
