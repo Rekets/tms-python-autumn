@@ -31,9 +31,11 @@
                     "{{ user.username }}"</a>
 
                 <h1>Last activity:</h1>
+
                 {% for activity in activity %}
                     <p>{{ activity.rout_length }}km</p>
                     <p>for {{ activity.duration }}min</p>
+                    <p>average speed is {{ activity.av_speed }} km/h</p>
                     <br>
                 {% endfor %}
 

@@ -6,7 +6,7 @@ from home.models import Articles, Image
 
 @admin.register(Articles)
 class ArticlesAdmin(admin.ModelAdmin):
-    list_display = ('title', 'content', 'author')
+    list_display = ('title', 'author')
     search_fields = ('title',)
 
 
