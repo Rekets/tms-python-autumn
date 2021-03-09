@@ -2,41 +2,49 @@
 
 {% block content %}
 
-<body>
+    <body>
 
-            <form method="post">
-                {% csrf_token %}
-                <div class="container">
-                    <div class="row">
+    <form method="post">
+        {% csrf_token %}
+        <div class="container">
+            <div class="row">
                 <div class="col-4"
-                            <h1>Add activity for {{ user.username }}</h1>
+                <h1>Add activity for {{ user.username }}</h1>
 
-                    <label for="user" class="form-label"></label>
-                      <input name="user" type="text" class="form-control" id="user" placeholder="username" value="{{ user.username }}">
+                <label for="user" class="form-label"></label>
+                <input name="user" type="text" class="form-control" id="user"
+                       placeholder="username" value="{{ user.username }}">
 
-                    <label for="weight" class="form-label"></label>
-                      <input name="weight" type="number" class="form-control" id="weight" placeholder="weight, kg" value="{{ user.weight }}">
+                <label for="weight" class="form-label"></label>
+                <input name="weight" type="number" class="form-control"
+                       id="weight" placeholder="weight, kg"
+                       value="{{ user.weight }}">
 
-                    <label for="name_activity" class="form-label"></label>
-                      <input name="name_activity" type="text" class="form-control" id="name_activity" placeholder="name activity"value="my run">
-
-
-                    <label for="duration" class="form-label"></label>
-                      <input name="duration" type="number" class="form-control" id="duration" placeholder="duration, min">
-
-
-                    <label for="rout_length" class="form-label"></label>
-                      <input name="rout_length" type="number" class="form-control" id="rout_length" placeholder="rout length, km">
+                <label for="name_activity" class="form-label"></label>
+                <input name="name_activity" type="text" class="form-control"
+                       id="name_activity" placeholder="name activity"
+                       value="my run">
 
 
-                    <label for="date" class="form-label"></label>
-                      <input name="date" type="datetime-local" class="form-control" id="date" placeholder="date">
+                <label for="duration" class="form-label"></label>
+                <input name="duration" type="number" class="form-control"
+                       id="duration" placeholder="duration, min">
 
-                    <button type="submit" class="btn a b">Add</button>
-                </div>
-                    </div>
+
+                <label for="rout_length" class="form-label"></label>
+                <input name="rout_length" type="number" class="form-control"
+                       id="rout_length" placeholder="rout length, km">
+
+
+                <label for="date" class="form-label"></label>
+                <input name="date" type="datetime-local" class="form-control"
+                       id="date" placeholder="date">
+
+                <button type="submit" class="btn a b">Add</button>
             </div>
-            </form>
-</body>
+        </div>
+        </div>
+    </form>
+    </body>
 
 {% endblock %}

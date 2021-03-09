@@ -28,6 +28,3 @@ class Articles(models.Model):
 class Image(models.Model):
     image = models.ImageField(upload_to="images", null=True)
     article = models.ForeignKey("Articles", on_delete=models.CASCADE)
-
-
-

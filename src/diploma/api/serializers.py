@@ -32,7 +32,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = ["user", "country", "height", "weight", "birth_date",
-                  'avatar', 'link']
+                  'avatar', 'link', 'user']
 
     def get_link(self, obj):
         uri = reverse("get-articles", kwargs={"pk": obj.pk})

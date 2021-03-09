@@ -16,17 +16,21 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link b active" aria-current="page" href="{% url 'all-articles' %}">News</a>
+                    <a class="nav-link b active" aria-current="page"
+                       href="{% url 'all-articles' %}">News</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link b active" href="{% url 'user-profile' username=user.username %}">My account</a>
+                    <a class="nav-link b active"
+                       href="{% url 'user-profile' username=user.username %}">My
+                        account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link b active" href="{% url 'activity' %}">All activity</a>
+                    <a class="nav-link b active" href="{% url 'activity' %}">All
+                        activity</a>
                 </li>
 
-                    <a class="nav-link active" href="{% url 'log-out' %}"
-                       aria-disabled="true">Logout</a>
+                <a class="nav-link active" href="{% url 'log-out' %}"
+                   aria-disabled="true">Logout</a>
 
             </ul>
         </div>
@@ -35,9 +39,9 @@
 
 
 
-    {% block content %}
+{% block content %}
 
-    {% endblock %}
+{% endblock %}
 
 
 </div>
@@ -52,9 +56,10 @@
       integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
       crossorigin="anonymous">
 <link href="user/profile.html">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
 <link rel="stylesheet" href="{% static 'home.css' %}">
-
 
 
 </html>

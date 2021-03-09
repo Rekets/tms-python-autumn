@@ -26,21 +26,19 @@ def start_work(request):
     weather_data = []
 
     for city in cities:
-
         r = requests.get(url.format(city)).json()
 
         city_weather = {
-            'city' : city.name,
-            'temperature' : r['main']['temp'],
-            'description' : r['weather'][0]['description'],
-            'icon' : r['weather'][0]['icon'],
+            'city': city.name,
+            'temperature': r['main']['temp'],
+            'description': r['weather'][0]['description'],
+            'icon': r['weather'][0]['icon'],
         }
 
         weather_data.append(city_weather)
 
-    context = {'weather_data' : weather_data, 'form' : form}
+    context = {'weather_data': weather_data, 'form': form}
     return render(request, 'start.html', context)
-
 
 
 class ArticleListView(ListView):
@@ -48,7 +46,6 @@ class ArticleListView(ListView):
     template_name = "articles.html"
     ordering = "title"
     context_object_name = "articles"
-
 
 
 class ArticleDetailView(DetailView):

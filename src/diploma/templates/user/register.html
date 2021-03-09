@@ -1,18 +1,20 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Регистрация</title>
-  </head>
-  <body>
-    <div class="wrapper register">
-        <form action="" method="post" class="form register">
-          {% csrf_token %}
-          <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
-          {{ form.as_p }}
-            <button class="btn"  href="{% url 'user-register' %}" >Create new account</button>
+</head>
+<body>
+<div class="wrapper register">
+    <form action="" method="post" class="form register">
+        {% csrf_token %}
+        <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
+        {{ form.as_p }}
+        <button class="btn" href="{% url 'user-register' %}">Create new
+            account
+        </button>
     </form>
-    </div>
-  </body>
-  <link rel="stylesheet" href="{% static 'my_login.css' %}">
+</div>
+</body>
+<link rel="stylesheet" href="{% static 'my_login.css' %}">
 </html>
